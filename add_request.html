@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Material</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Request Material</h1>
+    <form method="post">
+        <label for="material">Select Material:</label>
+        <select id="material" name="material" required>
+            {% for material in materials %}
+            <option value="{{ material.id }}">{{ material.name }}</option>
+            {% endfor %}
+        </select><br><br>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required><br><br>
+        <label for="purpose">Purpose:</label>
+        <textarea id="purpose" name="purpose" rows="4" required></textarea><br><br>
+        <button type="submit">Request Material</button>
+    </form>
+</body>
+</html>

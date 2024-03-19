@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Requests</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Material Requests</h1>
+    <ul>
+        {% for request in requests %}
+        <li>{{ request.quantity }} units of Material {{ request.material_id }} for {{ request.purpose }} - Status: {{ request.status }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('add_request') }}">Request Material</a>
+</body>
+</html>
